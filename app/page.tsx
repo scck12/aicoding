@@ -47,7 +47,13 @@ export default function Home() {
             센터를 방문해 보세요.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row sm:flex-wrap">
+          <a
+            className="gradient-btn flex h-12 w-full items-center justify-center gap-2 rounded-full px-5 text-white shadow-lg transition-transform hover:scale-105 md:w-[158px]"
+            href="/omok"
+          >
+            게임하기
+          </a>
           <a
             className="gradient-btn flex h-12 w-full items-center justify-center gap-2 rounded-full px-5 text-white shadow-lg transition-transform hover:scale-105 md:w-[158px]"
             href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
