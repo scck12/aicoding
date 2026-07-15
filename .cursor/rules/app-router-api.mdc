@@ -1,0 +1,47 @@
+---
+description: API는 App Router의 app/api 아래 Route Handler로 작성
+alwaysApply: true
+---
+
+# App Router API
+
+API 엔드포인트는 **App Router** 안에 Route Handler로 만든다. Pages Router(`pages/api/`)는 사용하지 않는다.
+
+## 파일 구조
+
+```
+app/
+  api/
+    users/
+      route.ts          → GET/POST /api/users
+    users/
+      [id]/
+        route.ts        → GET/PUT/DELETE /api/users/:id
+```
+
+- 경로: `app/api/<엔드포인트>/route.ts`
+- 동적 세그먼트: `app/api/users/[id]/route.ts`
+- HTTP 메서드별로 named export: `GET`, `POST`, `PUT`, `PATCH`, `DELETE`
+
+## 예시
+
+```typescript
+// app/api/users/route.ts
+import { NextResponse } from "next/server";
+
+export async function GET() {
+  return NextResponse.json({ users: [] });
+}
+
+export async function POST(request: Request) {
+  const body = await request.json();
+  return NextResponse.json({ created: body }, { status: 201 });
+}
+```
+
+## 금지
+
+- `pages/api/` 에 API 라우트 생성
+- `app/api/` 밖에 API 로직만 별도 진입점으로 두기 (비즈니스 로직 분리는 `lib/` 등에 가능)
+
+새 API 요청이 오면 먼저 `app/api/` 아래 경로와 `route.ts` 구조를 제안·생성한다.
