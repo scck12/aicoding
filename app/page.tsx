@@ -1,83 +1,96 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="animated-gradient-bg relative flex flex-1 flex-col items-center justify-center overflow-hidden font-sans">
-      <div
-        className="floating-blob pointer-events-none absolute -left-20 top-10 h-72 w-72 rounded-full bg-pink-400/40 blur-3xl"
-        style={{ animationDelay: "0s" }}
-      />
-      <div
-        className="floating-blob pointer-events-none absolute -right-16 bottom-20 h-80 w-80 rounded-full bg-cyan-400/40 blur-3xl"
-        style={{ animationDelay: "2s" }}
-      />
-      <div
-        className="floating-blob pointer-events-none absolute left-1/3 top-1/2 h-64 w-64 rounded-full bg-yellow-300/30 blur-3xl"
-        style={{ animationDelay: "4s" }}
-      />
+    <div className="flex min-h-full flex-1 flex-col bg-apple-canvas font-[system-ui,-apple-system,BlinkMacSystemFont,'Segoe_UI',sans-serif] text-apple-ink">
+      <header className="bg-apple-black text-apple-on-dark">
+        <nav className="mx-auto flex h-11 max-w-[980px] items-center justify-between px-6 text-[12px] tracking-[-0.12px]">
+          <span className="opacity-90">my-app</span>
+          <div className="flex gap-5">
+            <Link href="/poke" className="opacity-90 active:scale-95">
+              Pokedex
+            </Link>
+            <Link href="/omok" className="opacity-90 active:scale-95">
+              Omok
+            </Link>
+          </div>
+        </nav>
+      </header>
 
-      <main className="relative z-10 flex w-full max-w-3xl flex-1 flex-col items-center justify-between rounded-3xl border border-white/30 bg-white/20 px-16 py-32 shadow-2xl backdrop-blur-xl sm:items-start">
-        <Image
-          className="drop-shadow-lg brightness-0 invert"
-          src="/next.svg"
-          alt="Next.js 로고"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="gradient-text max-w-xs text-3xl font-bold leading-10 tracking-tight">
-            시작하려면 page.tsx 파일을 수정하세요.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-white/90 drop-shadow-sm">
-            시작점이나 더 자세한 안내가 필요하신가요?{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-semibold text-yellow-200 underline decoration-pink-300 underline-offset-4 transition-colors hover:text-pink-200"
-            >
-              템플릿
-            </a>
-            이나{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-semibold text-cyan-200 underline decoration-sky-300 underline-offset-4 transition-colors hover:text-sky-100"
-            >
-              학습
-            </a>{" "}
-            센터를 방문해 보세요.
+      <main className="flex flex-1 flex-col">
+        <section className="flex flex-col items-center bg-apple-tile px-6 py-20 text-center text-apple-on-dark sm:py-28">
+          <p className="mb-4 text-[21px] font-semibold tracking-[0.231px] text-apple-body-muted">
+            Pokedex
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row sm:flex-wrap">
-          <a
-            className="gradient-btn flex h-12 w-full items-center justify-center gap-2 rounded-full px-5 text-white shadow-lg transition-transform hover:scale-105 md:w-[158px]"
-            href="/omok"
-          >
-            게임하기
-          </a>
-          <a
-            className="gradient-btn flex h-12 w-full items-center justify-center gap-2 rounded-full px-5 text-white shadow-lg transition-transform hover:scale-105 md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="brightness-0 invert"
-              src="/vercel.svg"
-              alt="Vercel 로고"
-              width={16}
-              height={16}
-            />
-            지금 배포하기
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border-2 border-white/50 bg-white/20 px-5 text-white shadow-lg backdrop-blur-sm transition-all hover:scale-105 hover:border-white hover:bg-white/30 md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            문서
-          </a>
-        </div>
+          <h1 className="max-w-[12ch] text-[40px] font-semibold leading-[1.1] tracking-[-0.28px] sm:text-[56px] sm:leading-[1.07]">
+            포켓몬을 갤러리처럼.
+          </h1>
+          <p className="mt-6 max-w-lg text-[21px] leading-[1.19] tracking-[0.231px] text-apple-body-muted sm:text-[28px] sm:leading-[1.14]">
+            이름과 이미지를 둘러보고, 상세 정보까지 이어지는 도감입니다.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <Link
+              href="/poke"
+              className="rounded-full bg-apple-blue px-7 py-3.5 text-[18px] font-light text-white active:scale-95"
+            >
+              도감 열기
+            </Link>
+            <Link
+              href="/omok"
+              className="rounded-full border border-apple-blue-on-dark px-7 py-3.5 text-[18px] font-light text-apple-blue-on-dark active:scale-95"
+            >
+              오목 하기
+            </Link>
+          </div>
+          <Image
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png"
+            alt="Pikachu"
+            width={320}
+            height={320}
+            priority
+            className="mt-16 h-auto w-48 drop-shadow-[rgba(0,0,0,0.22)_3px_5px_30px] sm:w-72"
+          />
+        </section>
+
+        <section className="bg-apple-parchment px-6 py-20 text-center">
+          <h2 className="text-[34px] font-semibold tracking-[-0.374px] sm:text-[40px]">
+            가변게 시작하세요
+          </h2>
+          <p className="mx-auto mt-4 max-w-md text-[17px] leading-[1.47] tracking-[-0.374px] text-apple-muted-80">
+            도감에서 포켓몬을 고르거나, 오목으로 한 판 즐겨 보세요.
+          </p>
+          <div className="mx-auto mt-10 grid max-w-[700px] gap-5 sm:grid-cols-2">
+            <Link
+              href="/poke"
+              className="rounded-[18px] border border-apple-hairline bg-apple-canvas p-6 text-left active:scale-[0.98]"
+            >
+              <p className="text-[17px] font-semibold tracking-[-0.374px]">
+                Pokedex
+              </p>
+              <p className="mt-2 text-[17px] leading-[1.47] tracking-[-0.374px] text-apple-muted-80">
+                전체 목록과 상세 정보
+              </p>
+              <span className="mt-4 inline-block text-[17px] text-apple-blue">
+                바로가기
+              </span>
+            </Link>
+            <Link
+              href="/omok"
+              className="rounded-[18px] border border-apple-hairline bg-apple-canvas p-6 text-left active:scale-[0.98]"
+            >
+              <p className="text-[17px] font-semibold tracking-[-0.374px]">
+                Omok
+              </p>
+              <p className="mt-2 text-[17px] leading-[1.47] tracking-[-0.374px] text-apple-muted-80">
+                간단하고 빠른 한 판
+              </p>
+              <span className="mt-4 inline-block text-[17px] text-apple-blue">
+                바로가기
+              </span>
+            </Link>
+          </div>
+        </section>
       </main>
     </div>
   );

@@ -1,9 +1,10 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import OmokBoard from "@/components/OmokBoard";
 
-export const metadata = {
-  title: "오목 게임",
-  description: "친구와 함께 즐기는 오목 게임",
+export const metadata: Metadata = {
+  title: "Omok",
+  description: "Play omok against the computer",
 };
 
 export default function OmokPage() {
@@ -23,13 +24,13 @@ export default function OmokPage() {
           href="/"
           className="self-start rounded-full border border-white/40 bg-white/20 px-4 py-1.5 text-sm font-medium text-white backdrop-blur-sm transition-all hover:bg-white/30"
         >
-          ← 홈으로
+          홈으로
         </Link>
         <h1 className="gradient-text text-4xl font-bold tracking-tight">
-          오목
+          오목 게임
         </h1>
         <p className="text-center text-white/90">
-          흑돌부터 시작합니다. 다섯 목을 완성해 보세요!
+          흑백 번갈아 수를 둔습니다. 다섯 개를 일줄로 놓으면 이깁니다.
         </p>
       </div>
 

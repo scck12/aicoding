@@ -1,0 +1,46 @@
+---
+description: fetch API 호출 시 try/catch로 처리하고 실패 시 null 반환
+alwaysApply: true
+---
+
+# API fetch 에러 처리
+
+외부 API나 `fetch`로 데이터를 가져올 때는 아래 패턴을 따른다.
+
+## 규칙
+
+- `async/await`와 `fetch`를 사용한다.
+- `res.ok`가 아니면 `Error`를 throw한다. 메시지는 `` `요청 실패: ${res.status}` `` 형식을 쓴다.
+- 성공 시 `res.json()` 결과를 반환한다.
+- `catch`에서 `console.error('API 호출 오류:', error)`로 로그한 뒤 `null`을 반환한다.
+- 실패 시 예외를 다시 throw하지 않고 `null`을 반환한다.
+
+## 예시
+
+```typescript
+// ❌ BAD
+const res = await fetch(url);
+const data = await res.json();
+return data;
+
+// ❌ BAD — 실패 시 throw만 하거나 빈 객체를 반환
+try {
+  const res = await fetch(url);
+  return await res.json();
+} catch (error) {
+  throw error;
+}
+
+// ✅ GOOD
+try {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`요청 실패: ${res.status}`);
+  const data = await res.json();
+  return data;
+} catch (error) {
+  console.error("API 호출 오류:", error);
+  return null;
+}
+```
+
+호출부에서는 반환값이 `null`일 수 있음을 고려해 가드한다.

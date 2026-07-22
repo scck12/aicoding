@@ -3,6 +3,24 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Apple design tokens — docs/DESIGN-apple.md */
+  --apple-blue: #0066cc;
+  --apple-blue-focus: #0071e3;
+  --apple-blue-on-dark: #2997ff;
+  --apple-ink: #1d1d1f;
+  --apple-on-dark: #ffffff;
+  --apple-body-muted: #cccccc;
+  --apple-muted-80: #333333;
+  --apple-muted-48: #7a7a7a;
+  --apple-hairline: #e0e0e0;
+  --apple-canvas: #ffffff;
+  --apple-parchment: #f5f5f7;
+  --apple-pearl: #fafafc;
+  --apple-tile: #272729;
+  --apple-tile-2: #2a2a2c;
+  --apple-black: #000000;
+  --apple-product-shadow: rgba(0, 0, 0, 0.22) 3px 5px 30px 0;
 }
 
 @theme inline {
@@ -10,6 +28,22 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-apple-blue: #0066cc;
+  --color-apple-blue-focus: #0071e3;
+  --color-apple-blue-on-dark: #2997ff;
+  --color-apple-ink: #1d1d1f;
+  --color-apple-on-dark: #ffffff;
+  --color-apple-body-muted: #cccccc;
+  --color-apple-muted-80: #333333;
+  --color-apple-muted-48: #7a7a7a;
+  --color-apple-hairline: #e0e0e0;
+  --color-apple-canvas: #ffffff;
+  --color-apple-parchment: #f5f5f7;
+  --color-apple-pearl: #fafafc;
+  --color-apple-tile: #272729;
+  --color-apple-tile-2: #2a2a2c;
+  --color-apple-black: #000000;
 }
 
 @media (prefers-color-scheme: dark) {
